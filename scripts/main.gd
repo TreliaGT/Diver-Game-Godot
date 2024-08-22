@@ -8,6 +8,7 @@ extends Node2D
 @onready var environment = $Environment
 @onready var end_game_ui = $EndGame
 @onready var paused_game_ui = %Pause
+@onready var start_game_ui = %Start
 @onready var Player = $Player
 @onready var coinlabel = %CoinLabel
 @onready var tankSprite = %Tank
@@ -19,7 +20,7 @@ var tank_timer : Timer
 var tank : int = 10
 var viewport_size: Vector2
 var endgame: bool = false
-var pausedgame: bool = false
+var pausedgame: bool = true
 var coins :int = 0
 var elapsed_time: float = 0.0
 # Called when the node enters the scene tree for the first time.
@@ -28,7 +29,6 @@ func _ready() -> void:
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = spawn_interval
 	spawn_timer.one_shot = false
-	spawn_timer.autostart = true
 	spawn_timer.connect("timeout", _on_spawn_timer_timeout)
 	add_child(spawn_timer)
 	
@@ -37,7 +37,6 @@ func _ready() -> void:
 	# Configure Timer properties
 	tank_timer.wait_time = 10.0
 	tank_timer.one_shot = false
-	tank_timer.autostart = true
 	
 	# Connect the Timer's timeout signal to a function
 	tank_timer.connect("timeout", _tank_on_timer_timeout)
@@ -135,4 +134,7 @@ func _on_paused_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	pass # Replace with function body.
+	pausedgame = false
+	spawn_timer.start()
+	tank_timer.start()
+	start_game_ui.visible = false
