@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dh0d4ks1mhryi"]
+[gd_scene load_steps=28 format=3 uid="uid://dh0d4ks1mhryi"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_omo5f"]
 [ext_resource type="Texture2D" uid="uid://babvejmvx4cfp" path="res://assets/iu.png" id="1_xa8jx"]
@@ -7,6 +7,13 @@
 [ext_resource type="Script" path="res://scripts/managers/moving_objects.gd" id="2_roqd1"]
 [ext_resource type="Texture2D" uid="uid://b0ojbju0h5ymh" path="res://assets/Environment.png" id="3_5uk8a"]
 [ext_resource type="PackedScene" uid="uid://dvuryhjwwayrg" path="res://scenes/objects/rocks.tscn" id="4_mnnsj"]
+[ext_resource type="PackedScene" uid="uid://c5vj1uo3fplqv" path="res://scenes/objects/rocks_1.tscn" id="5_ey4jd"]
+[ext_resource type="PackedScene" uid="uid://bgyhnccvvfcq2" path="res://scenes/objects/rocks_2.tscn" id="6_snybs"]
+[ext_resource type="PackedScene" uid="uid://b2vtnnlo1l0ki" path="res://scenes/objects/rocks_3.tscn" id="7_c6enu"]
+[ext_resource type="PackedScene" uid="uid://bswlhgwoxkn6j" path="res://scenes/objects/shark_2.tscn" id="8_0v1he"]
+[ext_resource type="PackedScene" uid="uid://5sh7ivam4bi7" path="res://scenes/objects/shark_3.tscn" id="9_8gmst"]
+[ext_resource type="PackedScene" uid="uid://bf36bjhm442yt" path="res://scenes/objects/coins.tscn" id="10_bas83"]
+[ext_resource type="PackedScene" uid="uid://dhwjh018ru7xn" path="res://scenes/objects/bubble.tscn" id="11_s14fr"]
 
 [sub_resource type="Resource" id="Resource_i5k5u"]
 script = ExtResource("2_roqd1")
@@ -16,7 +23,42 @@ spawn_chance = 2.0
 [sub_resource type="Resource" id="Resource_q5igr"]
 script = ExtResource("2_roqd1")
 scene = ExtResource("4_mnnsj")
+spawn_chance = 3.0
+
+[sub_resource type="Resource" id="Resource_e5t11"]
+script = ExtResource("2_roqd1")
+scene = ExtResource("5_ey4jd")
+spawn_chance = 2.0
+
+[sub_resource type="Resource" id="Resource_ut5gj"]
+script = ExtResource("2_roqd1")
+scene = ExtResource("6_snybs")
 spawn_chance = 1.0
+
+[sub_resource type="Resource" id="Resource_3e151"]
+script = ExtResource("2_roqd1")
+scene = ExtResource("7_c6enu")
+spawn_chance = 1.0
+
+[sub_resource type="Resource" id="Resource_lp666"]
+script = ExtResource("2_roqd1")
+scene = ExtResource("8_0v1he")
+spawn_chance = 3.0
+
+[sub_resource type="Resource" id="Resource_36gkm"]
+script = ExtResource("2_roqd1")
+scene = ExtResource("9_8gmst")
+spawn_chance = 2.0
+
+[sub_resource type="Resource" id="Resource_478yr"]
+script = ExtResource("2_roqd1")
+scene = ExtResource("10_bas83")
+spawn_chance = 3.0
+
+[sub_resource type="Resource" id="Resource_hhj7f"]
+script = ExtResource("2_roqd1")
+scene = ExtResource("11_s14fr")
+spawn_chance = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ax8"]
 size = Vector2(58.5, 1016)
@@ -33,7 +75,7 @@ region = Rect2(34.0231, 33.542, 30.4579, 29.6868)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_omo5f")
-moving_object_types = Array[ExtResource("2_roqd1")]([SubResource("Resource_i5k5u"), SubResource("Resource_q5igr")])
+moving_object_types = Array[ExtResource("2_roqd1")]([SubResource("Resource_i5k5u"), SubResource("Resource_q5igr"), SubResource("Resource_e5t11"), SubResource("Resource_ut5gj"), SubResource("Resource_3e151"), SubResource("Resource_lp666"), SubResource("Resource_36gkm"), SubResource("Resource_478yr"), SubResource("Resource_hhj7f")])
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -49,6 +91,7 @@ metadata/_edit_use_anchors_ = true
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Area2D" type="StaticBody2D" parent="UI"]
+position = Vector2(-4, 0)
 disable_mode = 2
 collision_layer = 3
 
@@ -81,6 +124,20 @@ frame = 5
 position = Vector2(-24.25, 496)
 shape = SubResource("RectangleShape2D_s1ax8")
 
+[node name="TimerLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_right = 0.148
+offset_left = 325.0
+offset_top = 27.0
+offset_right = 257.404
+offset_bottom = 66.0
+size_flags_horizontal = 6
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "0:00"
+horizontal_alignment = 1
+
 [node name="ColorRect" type="ColorRect" parent="UI"]
 anchors_preset = -1
 anchor_left = -0.00833333
@@ -105,6 +162,26 @@ scale = Vector2(3.80769, 3.44444)
 texture_normal = SubResource("AtlasTexture_7aggo")
 metadata/_edit_use_anchors_ = true
 
+[node name="CoinLabel" type="Label" parent="UI/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 232.0
+offset_top = 25.0
+offset_right = 490.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 20
+text = "Coins : 0"
+horizontal_alignment = 1
+
+[node name="Tank" type="Sprite2D" parent="UI/ColorRect"]
+unique_name_in_owner = true
+position = Vector2(363, 139)
+scale = Vector2(4, 4)
+texture = ExtResource("1_xa8jx")
+hframes = 11
+vframes = 2
+frame = 10
+
 [node name="Player" parent="." instance=ExtResource("2_1htvt")]
 position = Vector2(347, 923)
 
@@ -124,19 +201,28 @@ size_flags_vertical = 4
 color = Color(0.776471, 0.0823529, 0.407843, 0.717647)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="EndGame/ColorRect"]
+[node name="Status" type="Label" parent="EndGame/ColorRect"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 222.0
 offset_top = 451.0
 offset_right = 456.0
-offset_bottom = 542.0
-theme_override_font_sizes/font_size = 50
+offset_bottom = 489.0
+theme_override_font_sizes/font_size = 25
 text = "END GAME"
 
 [node name="Start Again" type="TouchScreenButton" parent="EndGame/ColorRect"]
 position = Vector2(142, 568)
 scale = Vector2(427, 119)
 texture_normal = SubResource("PlaceholderTexture2D_tbs2w")
+
+[node name="Endgame" type="Label" parent="EndGame/ColorRect"]
+offset_left = 222.0
+offset_top = 361.0
+offset_right = 482.0
+offset_bottom = 431.0
+theme_override_font_sizes/font_size = 50
+text = "END GAME"
 
 [connection signal="pressed" from="UI/ColorRect/Right" to="Player" method="_on_right_pressed"]
 [connection signal="released" from="UI/ColorRect/Right" to="Player" method="_on_released"]

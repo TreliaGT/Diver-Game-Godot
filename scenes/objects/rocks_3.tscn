@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2vtnnlo1l0ki"]
+
+[ext_resource type="Texture2D" uid="uid://b0ojbju0h5ymh" path="res://assets/Environment.png" id="1_0pxml"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co106"]
+atlas = ExtResource("1_0pxml")
+region = Rect2(32, 0, 64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_570vv"]
+size = Vector2(375, 109)
+
+[node name="Rocks3" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(248, 92)
+
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(210, -6)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_co106")
+flip_h = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(22, -5)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_co106")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(117.5, -2)
+shape = SubResource("RectangleShape2D_570vv")

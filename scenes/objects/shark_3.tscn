@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://5sh7ivam4bi7"]
+
+[ext_resource type="Script" path="res://scripts/objects/shark.gd" id="1_arx7t"]
+[ext_resource type="Texture2D" uid="uid://dpst7gbmbommc" path="res://assets/animals.png" id="2_vim3u"]
+
+[sub_resource type="Curve2D" id="Curve2D_nyh6l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 212, -2, 0, 0, 0, 0, 681, 2)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdpa1"]
+atlas = ExtResource("2_vim3u")
+region = Rect2(0, 6.0817, 35.202, 27.5301)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ja0"]
+size = Vector2(32.9931, 20)
+
+[node name="shark3" type="Node2D"]
+position = Vector2(132, 108)
+script = ExtResource("1_arx7t")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-205, 0)
+curve = SubResource("Curve2D_nyh6l")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(212, -2)
+rotation = 0.00852858
+
+[node name="Sharksprite" type="Area2D" parent="Path2D/PathFollow2D"]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Sharksprite"]
+texture = SubResource("AtlasTexture_kdpa1")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Sharksprite"]
+position = Vector2(-0.996887, 0)
+shape = SubResource("RectangleShape2D_j3ja0")
+
+[connection signal="body_entered" from="Path2D/PathFollow2D/Sharksprite" to="." method="_on_sharksprite_body_entered"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf36bjhm442yt"]
+
+[ext_resource type="Script" path="res://scripts/objects/coins.gd" id="1_f68l7"]
+[ext_resource type="Texture2D" uid="uid://b0ojbju0h5ymh" path="res://assets/Environment.png" id="2_7oon1"]
+
+[sub_resource type="Curve2D" id="Curve2D_kopya"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 103, 89, 0, 0, 0, 0, 592, 88)
+}
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qomee"]
+radius = 11.0
+
+[node name="Coins" type="Path2D"]
+curve = SubResource("Curve2D_kopya")
+script = ExtResource("1_f68l7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(103, 89)
+rotation = -0.00204499
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Area2D"]
+texture = ExtResource("2_7oon1")
+hframes = 3
+vframes = 4
+frame = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
+shape = SubResource("CircleShape2D_qomee")
+
+[connection signal="body_entered" from="PathFollow2D/Area2D" to="." method="_on_body_entered"]
