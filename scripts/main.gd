@@ -7,6 +7,7 @@ extends Node2D
 
 @onready var environment = $Environment
 @onready var end_game_ui = $EndGame
+@onready var paused_game_ui = %Pause
 @onready var Player = $Player
 @onready var coinlabel = %CoinLabel
 @onready var tankSprite = %Tank
@@ -18,6 +19,7 @@ var tank_timer : Timer
 var tank : int = 10
 var viewport_size: Vector2
 var endgame: bool = false
+var pausedgame: bool = false
 var coins :int = 0
 var elapsed_time: float = 0.0
 # Called when the node enters the scene tree for the first time.
@@ -70,7 +72,7 @@ func _on_spawn_timer_timeout() -> void:
 			break
 
 func _process(delta: float) -> void:
-	if not endgame:
+	if not endgame && not pausedgame:
 		#Timer
 		elapsed_time += delta
 		var minutes = int(elapsed_time / 60)
@@ -103,6 +105,8 @@ func _get_bubble() ->void:
 #end the game
 func _end_game() -> void:
 	endgame = true
+	spawn_timer.stop()
+	tank_timer.stop()
 	endstatus.text = "Time: %s \nCoins: %s" %  [timerLabel.text, str(coins)]
 	end_game_ui.visible = true
 
@@ -114,3 +118,21 @@ func _get_coin() -> void:
 #start again
 func _on_start_again_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_resume_pressed() -> void:
+	pausedgame = false
+	spawn_timer.start()
+	tank_timer.start()
+	paused_game_ui.visible = false
+
+
+func _on_paused_pressed() -> void:
+	pausedgame = true
+	spawn_timer.stop()
+	tank_timer.stop()
+	paused_game_ui.visible = true
+
+
+func _on_start_pressed() -> void:
+	pass # Replace with function body.

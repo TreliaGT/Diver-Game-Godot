@@ -182,11 +182,44 @@ hframes = 11
 vframes = 2
 frame = 10
 
+[node name="Paused" type="TouchScreenButton" parent="UI"]
+position = Vector2(568, 11)
+scale = Vector2(84, 75)
+texture_normal = SubResource("PlaceholderTexture2D_tbs2w")
+
 [node name="Player" parent="." instance=ExtResource("2_1htvt")]
 position = Vector2(347, 923)
 
 [node name="Environment" type="VBoxContainer" parent="."]
 alignment = 1
+
+[node name="Pause" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+offset_left = -3.0
+offset_top = 4.0
+offset_right = 725.0
+offset_bottom = 1273.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.504639, 0.428598, 0.183865, 0.717647)
+metadata/_edit_use_anchors_ = true
+
+[node name="Resume" type="TouchScreenButton" parent="Pause/ColorRect"]
+position = Vector2(142, 568)
+scale = Vector2(427, 119)
+texture_normal = SubResource("PlaceholderTexture2D_tbs2w")
+
+[node name="Endgame" type="Label" parent="Pause/ColorRect"]
+offset_left = 222.0
+offset_top = 361.0
+offset_right = 482.0
+offset_bottom = 431.0
+theme_override_font_sizes/font_size = 50
+text = "Pause"
+horizontal_alignment = 1
 
 [node name="EndGame" type="CanvasLayer" parent="."]
 visible = false
@@ -224,8 +257,37 @@ offset_bottom = 431.0
 theme_override_font_sizes/font_size = 50
 text = "END GAME"
 
+[node name="Start" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="ColorRect" type="ColorRect" parent="Start"]
+offset_left = -3.0
+offset_top = 4.0
+offset_right = 725.0
+offset_bottom = 1273.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.504639, 0.428598, 0.183865, 0.717647)
+metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="TouchScreenButton" parent="Start/ColorRect"]
+position = Vector2(142, 568)
+scale = Vector2(427, 119)
+texture_normal = SubResource("PlaceholderTexture2D_tbs2w")
+
+[node name="Endgame" type="Label" parent="Start/ColorRect"]
+offset_left = 222.0
+offset_top = 361.0
+offset_right = 482.0
+offset_bottom = 431.0
+theme_override_font_sizes/font_size = 50
+text = "Start"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="UI/ColorRect/Right" to="Player" method="_on_right_pressed"]
 [connection signal="released" from="UI/ColorRect/Right" to="Player" method="_on_released"]
 [connection signal="pressed" from="UI/ColorRect/Left" to="Player" method="_on_left_pressed"]
 [connection signal="released" from="UI/ColorRect/Left" to="Player" method="_on_released"]
+[connection signal="pressed" from="UI/Paused" to="." method="_on_paused_pressed"]
+[connection signal="pressed" from="Pause/ColorRect/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="EndGame/ColorRect/Start Again" to="." method="_on_start_again_pressed"]
