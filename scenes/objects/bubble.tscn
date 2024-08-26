@@ -5,25 +5,25 @@
 
 [sub_resource type="Curve2D" id="Curve2D_kopya"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 103, 89, 0, 0, 0, 0, 592, 88)
+"points": PackedVector2Array(0, 0, 0, 0, 70, 87, 0, 0, 0, 0, 326, 91)
 }
 point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pvwi2"]
-radius = 34.3657
+radius = 10.073
 
 [node name="bubble" type="Path2D"]
 curve = SubResource("Curve2D_kopya")
 script = ExtResource("1_j56gf")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(103, 89)
-rotation = -0.00204499
+position = Vector2(70, 87)
+rotation = 0.0156237
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D"]
+scale = Vector2(0.997657, 1.00125)
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Area2D"]
-scale = Vector2(3, 3)
 texture = ExtResource("1_bw23a")
 hframes = 3
 vframes = 4

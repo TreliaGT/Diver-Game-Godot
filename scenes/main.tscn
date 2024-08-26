@@ -85,14 +85,13 @@ layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 anchors_preset = -1
-anchor_left = -0.0222222
-anchor_top = -0.0164062
-anchor_right = -0.0291667
-anchor_bottom = -0.0764062
-offset_left = 12.0
-offset_top = 4.76562
-offset_right = 740.0
-offset_bottom = 1273.77
+anchor_top = 0.0031875
+anchor_right = 1.0
+anchor_bottom = 1.00312
+offset_left = -10.0
+offset_top = -0.0400004
+offset_right = 10.0
+offset_bottom = 234.0
 scale = Vector2(1.00125, 0.745864)
 color = Color(0.187212, 0.48791, 0.494406, 1)
 metadata/_edit_use_anchors_ = true
@@ -101,7 +100,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="StaticBody2D" parent="UI"]
 position = Vector2(-4, 0)
-scale = Vector2(1.8385, 0.872884)
+scale = Vector2(0.843504, 0.559205)
 disable_mode = 2
 collision_layer = 3
 
@@ -118,8 +117,8 @@ position = Vector2(28.5, 499)
 shape = SubResource("RectangleShape2D_s1ax8")
 
 [node name="Area2D2" type="StaticBody2D" parent="UI"]
-position = Vector2(711, 5)
-scale = Vector2(1.72, 0.749916)
+position = Vector2(356, 5)
+scale = Vector2(0.73122, 0.589916)
 disable_mode = 2
 collision_layer = 3
 
@@ -133,7 +132,6 @@ frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Area2D2"]
 position = Vector2(-24.25, 490.104)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_s1ax8")
 
 [node name="TimerLabel" type="Label" parent="UI"]
@@ -142,14 +140,14 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.022
-offset_left = -36.0
-offset_top = 36.0
-offset_right = 43.0
-offset_bottom = 62.84
+offset_left = -39.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 48.92
 grow_horizontal = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "0:00"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -157,15 +155,16 @@ metadata/_edit_use_anchors_ = true
 [node name="ColorRect" type="ColorRect" parent="UI"]
 anchors_preset = -1
 anchor_left = -0.00833333
-anchor_right = 0.0180556
-anchor_bottom = 0.0720625
-offset_left = 2.0
-offset_top = 663.0
-offset_right = 731.0
-offset_bottom = 844.76
+anchor_top = 0.811
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.039978
+offset_right = 392.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.964723, 0.937105)
+scale = Vector2(0.484724, 0.527637)
+size_flags_vertical = 3
 color = Color(0.168627, 0.196078, 0.247059, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -200,21 +199,22 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Tank" type="Sprite2D" parent="UI/ColorRect"]
 unique_name_in_owner = true
-position = Vector2(363.835, 149.396)
-scale = Vector2(-5.30006, 4.81191)
+position = Vector2(363.835, 143.198)
+scale = Vector2(-5.30006, 4.42453)
 texture = ExtResource("1_xa8jx")
 hframes = 11
 vframes = 2
 frame = 10
 
 [node name="Paused" type="TouchScreenButton" parent="UI"]
-position = Vector2(636, 28)
-scale = Vector2(1.22917, 1.1875)
+position = Vector2(308, 16)
+scale = Vector2(0.79167, 0.645833)
 texture_normal = ExtResource("14_nbwci")
 texture_pressed = ExtResource("14_nbwci")
 
 [node name="Player" parent="." instance=ExtResource("2_1htvt")]
-position = Vector2(378, 555)
+position = Vector2(192, 457)
+scale = Vector2(1, 1)
 
 [node name="Environment" type="VBoxContainer" parent="."]
 alignment = 1
@@ -226,12 +226,14 @@ visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Pause"]
 anchors_preset = -1
-anchor_top = -0.00888889
-anchor_bottom = 0.00333333
-offset_left = -3.0
+anchor_left = -0.022
+anchor_top = -0.009375
+anchor_right = 0.997
+anchor_bottom = 0.999
+offset_left = -0.0799994
 offset_top = 4.0
-offset_right = 725.0
-offset_bottom = 1273.0
+offset_right = 0.0799866
+offset_bottom = 237.64
 scale = Vector2(1, 0.729541)
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -239,13 +241,13 @@ color = Color(0.127184, 0.150864, 0.477289, 0.717647)
 metadata/_edit_use_anchors_ = true
 
 [node name="restart" type="TouchScreenButton" parent="Pause/ColorRect"]
-position = Vector2(131, 575.509)
-scale = Vector2(1.142, 1.34526)
+position = Vector2(88, 338.569)
+scale = Vector2(0.445755, 0.685363)
 texture_normal = ExtResource("16_egiqw")
 
 [node name="Resume" type="TouchScreenButton" parent="Pause/ColorRect"]
-position = Vector2(128, 373.437)
-scale = Vector2(1.13735, 1.3236)
+position = Vector2(87, 222.057)
+scale = Vector2(0.448113, 0.69907)
 texture_normal = ExtResource("17_h1jig")
 
 [node name="EndGame" type="CanvasLayer" parent="."]
@@ -253,12 +255,12 @@ visible = false
 
 [node name="ColorRect" type="ColorRect" parent="EndGame"]
 anchors_preset = -1
-anchor_top = -0.0188889
-anchor_bottom = 0.00777778
-offset_left = -3.0
+anchor_top = -0.0171875
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_top = 4.0
-offset_right = 725.0
-offset_bottom = 1273.0
+offset_right = 7.0
+offset_bottom = 276.0
 scale = Vector2(0.998864, 0.706256)
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -267,7 +269,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Status" type="Label" parent="EndGame/ColorRect"]
 unique_name_in_owner = true
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.429536
+anchor_top = -0.305082
+anchor_right = -0.429536
+anchor_bottom = -0.305082
 offset_left = 222.0
 offset_top = 451.0
 offset_right = 456.0
@@ -277,21 +284,21 @@ text = "END GAME"
 metadata/_edit_use_anchors_ = true
 
 [node name="Start Again" type="TouchScreenButton" parent="EndGame/ColorRect"]
-position = Vector2(130.921, 593.421)
-scale = Vector2(1.02408, 1.32945)
+position = Vector2(65.0739, 447.43)
+scale = Vector2(0.52418, 0.693799)
 texture_normal = ExtResource("18_meis1")
 
 [node name="Start" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
 [node name="Background2" type="Sprite2D" parent="Start"]
-position = Vector2(358.5, 443)
-scale = Vector2(1.02361, 0.7125)
+position = Vector2(179, 320.5)
+scale = Vector2(0.508333, 0.502344)
 texture = ExtResource("19_7q3qa")
 
 [node name="Start" type="TouchScreenButton" parent="Start"]
-position = Vector2(144, 518)
-scale = Vector2(1.00029, 1.10438)
+position = Vector2(42, 252)
+scale = Vector2(0.627358, 0.68)
 texture_normal = ExtResource("17_h1jig")
 
 [node name="ColorRect" type="ColorRect" parent="Start"]
