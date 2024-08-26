@@ -10,15 +10,18 @@ config_version=5
 
 [application]
 
-config/name="Anxiety Diver"
+config/name="Shark Drift"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.129386, 0.0701623, 0.353096, 1)
+boot_splash/image="res://assets/Background.png"
+config/icon="res://assets/icon.png"
 
 [display]
 
 window/size/viewport_width=720
-window/size/viewport_height=1280
+window/size/viewport_height=900
+window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1

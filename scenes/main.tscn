@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dh0d4ks1mhryi"]
+[gd_scene load_steps=32 format=3 uid="uid://dh0d4ks1mhryi"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_omo5f"]
 [ext_resource type="Texture2D" uid="uid://babvejmvx4cfp" path="res://assets/iu.png" id="1_xa8jx"]
@@ -14,6 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://5sh7ivam4bi7" path="res://scenes/objects/shark_3.tscn" id="9_8gmst"]
 [ext_resource type="PackedScene" uid="uid://bf36bjhm442yt" path="res://scenes/objects/coins.tscn" id="10_bas83"]
 [ext_resource type="PackedScene" uid="uid://dhwjh018ru7xn" path="res://scenes/objects/bubble.tscn" id="11_s14fr"]
+[ext_resource type="Texture2D" uid="uid://waf0wpxf554o" path="res://assets/circle-pause.png" id="14_nbwci"]
+[ext_resource type="Texture2D" uid="uid://cluv2hj68khg1" path="res://assets/restart.jpg" id="16_egiqw"]
+[ext_resource type="Texture2D" uid="uid://bbq2atvi6xa37" path="res://assets/Play.jpg" id="17_h1jig"]
+[ext_resource type="Texture2D" uid="uid://bfykjogujvqjv" path="res://assets/playagain.jpg" id="18_meis1"]
+[ext_resource type="Texture2D" uid="uid://brc7p5ar6dl68" path="res://assets/Background.jpg" id="19_7q3qa"]
 
 [sub_resource type="Resource" id="Resource_i5k5u"]
 script = ExtResource("2_roqd1")
@@ -61,7 +66,7 @@ scene = ExtResource("11_s14fr")
 spawn_chance = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ax8"]
-size = Vector2(58.5, 1016)
+size = Vector2(58.5, 994.792)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a5p7g"]
 atlas = ExtResource("1_xa8jx")
@@ -71,8 +76,6 @@ region = Rect2(0.577473, 35.0842, 29.6868, 28.5302)
 atlas = ExtResource("1_xa8jx")
 region = Rect2(34.0231, 33.542, 30.4579, 29.6868)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tbs2w"]
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_omo5f")
 moving_object_types = Array[ExtResource("2_roqd1")]([SubResource("Resource_i5k5u"), SubResource("Resource_q5igr"), SubResource("Resource_e5t11"), SubResource("Resource_ut5gj"), SubResource("Resource_3e151"), SubResource("Resource_lp666"), SubResource("Resource_36gkm"), SubResource("Resource_478yr"), SubResource("Resource_hhj7f")])
@@ -81,10 +84,16 @@ moving_object_types = Array[ExtResource("2_roqd1")]([SubResource("Resource_i5k5u
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
-offset_left = -3.0
-offset_top = 4.0
-offset_right = 725.0
-offset_bottom = 1273.0
+anchors_preset = -1
+anchor_left = -0.0222222
+anchor_top = -0.0164062
+anchor_right = -0.0291667
+anchor_bottom = -0.0764062
+offset_left = 12.0
+offset_top = 4.76562
+offset_right = 740.0
+offset_bottom = 1273.77
+scale = Vector2(1.00125, 0.745864)
 color = Color(0.187212, 0.48791, 0.494406, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -92,6 +101,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="StaticBody2D" parent="UI"]
 position = Vector2(-4, 0)
+scale = Vector2(1.8385, 0.872884)
 disable_mode = 2
 collision_layer = 3
 
@@ -108,7 +118,8 @@ position = Vector2(28.5, 499)
 shape = SubResource("RectangleShape2D_s1ax8")
 
 [node name="Area2D2" type="StaticBody2D" parent="UI"]
-position = Vector2(716, 9)
+position = Vector2(711, 5)
+scale = Vector2(1.72, 0.749916)
 disable_mode = 2
 collision_layer = 3
 
@@ -121,37 +132,45 @@ vframes = 4
 frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Area2D2"]
-position = Vector2(-24.25, 496)
+position = Vector2(-24.25, 490.104)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_s1ax8")
 
 [node name="TimerLabel" type="Label" parent="UI"]
 unique_name_in_owner = true
 anchors_preset = -1
-anchor_right = 0.148
-offset_left = 325.0
-offset_top = 27.0
-offset_right = 257.404
-offset_bottom = 66.0
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.022
+offset_left = -36.0
+offset_top = 36.0
+offset_right = 43.0
+offset_bottom = 62.84
+grow_horizontal = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "0:00"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
 anchors_preset = -1
 anchor_left = -0.00833333
-anchor_right = -0.00833333
-anchor_bottom = 0.072
-offset_left = 1.0
-offset_top = 1002.0
-offset_right = 728.0
-offset_bottom = 1183.84
+anchor_right = 0.0180556
+anchor_bottom = 0.0720625
+offset_left = 2.0
+offset_top = 663.0
+offset_right = 731.0
+offset_bottom = 844.76
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.964723, 0.937105)
 color = Color(0.168627, 0.196078, 0.247059, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Right" type="TouchScreenButton" parent="UI/ColorRect"]
-position = Vector2(570, 99)
+position = Vector2(558.79, 101.778)
 scale = Vector2(3.75862, 3.28571)
 texture_normal = SubResource("AtlasTexture_a5p7g")
 metadata/_edit_use_anchors_ = true
@@ -164,7 +183,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CoinLabel" type="Label" parent="UI/ColorRect"]
 unique_name_in_owner = true
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00113738
+anchor_top = 0.0278934
+anchor_right = 0.0011374
+anchor_bottom = 0.0278934
 offset_left = 232.0
 offset_top = 25.0
 offset_right = 490.0
@@ -172,66 +196,73 @@ offset_bottom = 59.0
 theme_override_font_sizes/font_size = 20
 text = "Coins : 0"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Tank" type="Sprite2D" parent="UI/ColorRect"]
 unique_name_in_owner = true
-position = Vector2(363, 139)
-scale = Vector2(4, 4)
+position = Vector2(363.835, 149.396)
+scale = Vector2(-5.30006, 4.81191)
 texture = ExtResource("1_xa8jx")
 hframes = 11
 vframes = 2
 frame = 10
 
 [node name="Paused" type="TouchScreenButton" parent="UI"]
-position = Vector2(568, 11)
-scale = Vector2(84, 75)
-texture_normal = SubResource("PlaceholderTexture2D_tbs2w")
+position = Vector2(636, 28)
+scale = Vector2(1.22917, 1.1875)
+texture_normal = ExtResource("14_nbwci")
+texture_pressed = ExtResource("14_nbwci")
 
 [node name="Player" parent="." instance=ExtResource("2_1htvt")]
-position = Vector2(347, 923)
+position = Vector2(378, 555)
 
 [node name="Environment" type="VBoxContainer" parent="."]
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Pause" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Pause"]
+anchors_preset = -1
+anchor_top = -0.00888889
+anchor_bottom = 0.00333333
 offset_left = -3.0
 offset_top = 4.0
 offset_right = 725.0
 offset_bottom = 1273.0
+scale = Vector2(1, 0.729541)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(0.504639, 0.428598, 0.183865, 0.717647)
+color = Color(0.127184, 0.150864, 0.477289, 0.717647)
 metadata/_edit_use_anchors_ = true
 
-[node name="Resume" type="TouchScreenButton" parent="Pause/ColorRect"]
-position = Vector2(142, 568)
-scale = Vector2(427, 119)
-texture_normal = SubResource("PlaceholderTexture2D_tbs2w")
+[node name="restart" type="TouchScreenButton" parent="Pause/ColorRect"]
+position = Vector2(131, 575.509)
+scale = Vector2(1.142, 1.34526)
+texture_normal = ExtResource("16_egiqw")
 
-[node name="Endgame" type="Label" parent="Pause/ColorRect"]
-offset_left = 222.0
-offset_top = 361.0
-offset_right = 482.0
-offset_bottom = 431.0
-theme_override_font_sizes/font_size = 50
-text = "Pause"
-horizontal_alignment = 1
+[node name="Resume" type="TouchScreenButton" parent="Pause/ColorRect"]
+position = Vector2(128, 373.437)
+scale = Vector2(1.13735, 1.3236)
+texture_normal = ExtResource("17_h1jig")
 
 [node name="EndGame" type="CanvasLayer" parent="."]
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="EndGame"]
+anchors_preset = -1
+anchor_top = -0.0188889
+anchor_bottom = 0.00777778
 offset_left = -3.0
 offset_top = 4.0
 offset_right = 725.0
 offset_bottom = 1273.0
+scale = Vector2(0.998864, 0.706256)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(0.776471, 0.0823529, 0.407843, 0.717647)
+color = Color(0.159815, 0.135468, 0.437856, 0.717647)
 metadata/_edit_use_anchors_ = true
 
 [node name="Status" type="Label" parent="EndGame/ColorRect"]
@@ -243,52 +274,47 @@ offset_right = 456.0
 offset_bottom = 489.0
 theme_override_font_sizes/font_size = 25
 text = "END GAME"
+metadata/_edit_use_anchors_ = true
 
 [node name="Start Again" type="TouchScreenButton" parent="EndGame/ColorRect"]
-position = Vector2(142, 568)
-scale = Vector2(427, 119)
-texture_normal = SubResource("PlaceholderTexture2D_tbs2w")
-
-[node name="Endgame" type="Label" parent="EndGame/ColorRect"]
-offset_left = 222.0
-offset_top = 361.0
-offset_right = 482.0
-offset_bottom = 431.0
-theme_override_font_sizes/font_size = 50
-text = "END GAME"
+position = Vector2(130.921, 593.421)
+scale = Vector2(1.02408, 1.32945)
+texture_normal = ExtResource("18_meis1")
 
 [node name="Start" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
+[node name="Background2" type="Sprite2D" parent="Start"]
+position = Vector2(358.5, 443)
+scale = Vector2(1.02361, 0.7125)
+texture = ExtResource("19_7q3qa")
+
+[node name="Start" type="TouchScreenButton" parent="Start"]
+position = Vector2(144, 518)
+scale = Vector2(1.00029, 1.10438)
+texture_normal = ExtResource("17_h1jig")
+
 [node name="ColorRect" type="ColorRect" parent="Start"]
+visible = false
+anchors_preset = -1
+anchor_top = -0.009375
+anchor_bottom = -0.009375
 offset_left = -3.0
 offset_top = 4.0
 offset_right = 725.0
 offset_bottom = 1273.0
+scale = Vector2(0.993979, 1.03501)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0.504639, 0.428598, 0.183865, 0.717647)
 metadata/_edit_use_anchors_ = true
-
-[node name="Start" type="TouchScreenButton" parent="Start/ColorRect"]
-position = Vector2(142, 568)
-scale = Vector2(427, 119)
-texture_normal = SubResource("PlaceholderTexture2D_tbs2w")
-
-[node name="Endgame" type="Label" parent="Start/ColorRect"]
-offset_left = 222.0
-offset_top = 361.0
-offset_right = 482.0
-offset_bottom = 431.0
-theme_override_font_sizes/font_size = 50
-text = "Start"
-horizontal_alignment = 1
 
 [connection signal="pressed" from="UI/ColorRect/Right" to="Player" method="_on_right_pressed"]
 [connection signal="released" from="UI/ColorRect/Right" to="Player" method="_on_released"]
 [connection signal="pressed" from="UI/ColorRect/Left" to="Player" method="_on_left_pressed"]
 [connection signal="released" from="UI/ColorRect/Left" to="Player" method="_on_released"]
 [connection signal="pressed" from="UI/Paused" to="." method="_on_paused_pressed"]
+[connection signal="pressed" from="Pause/ColorRect/restart" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="Pause/ColorRect/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="EndGame/ColorRect/Start Again" to="." method="_on_start_again_pressed"]
-[connection signal="pressed" from="Start/ColorRect/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Start/Start" to="." method="_on_start_pressed"]
