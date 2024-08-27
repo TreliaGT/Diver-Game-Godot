@@ -14,7 +14,7 @@ atlas = ExtResource("2_vim3u")
 region = Rect2(0, 6.0817, 35.202, 27.5301)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ja0"]
-size = Vector2(16.07, 9.88708)
+size = Vector2(14.4996, 8.9998)
 
 [node name="shark3" type="Node2D"]
 position = Vector2(73, 109)
@@ -37,7 +37,7 @@ texture = SubResource("AtlasTexture_kdpa1")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Sharksprite"]
-position = Vector2(0.499992, -0.00351715)
+position = Vector2(0.249985, -0.00350189)
 shape = SubResource("RectangleShape2D_j3ja0")
 
 [connection signal="body_entered" from="Path2D/PathFollow2D/Sharksprite" to="." method="_on_sharksprite_body_entered"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8mxfhsjijm22"]
+
+[ext_resource type="Texture2D" uid="uid://b0ojbju0h5ymh" path="res://assets/Environment.png" id="1_50l7b"]
+[ext_resource type="Script" path="res://scripts/objects/rocks_bubble.gd" id="1_bu5gv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co106"]
+atlas = ExtResource("1_50l7b")
+region = Rect2(32, 0, 64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl6cb"]
+size = Vector2(124, 45.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gfad8"]
+radius = 10.073
+
+[node name="Rocks" type="Node2D"]
+script = ExtResource("1_bu5gv")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(275, 177)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(24, -13)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_co106")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(25, -10)
+shape = SubResource("RectangleShape2D_nl6cb")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(65, 74)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-2, -6)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_co106")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-4, -3.75)
+shape = SubResource("RectangleShape2D_nl6cb")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(77, 30)
+scale = Vector2(0.997657, 1.00125)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_50l7b")
+hframes = 3
+vframes = 4
+frame = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gfad8")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(283.82, 127.037)
+scale = Vector2(0.995319, 1.0025)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+texture = ExtResource("1_50l7b")
+hframes = 3
+vframes = 4
+frame = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_gfad8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_body_entered"]

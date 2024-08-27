@@ -14,7 +14,7 @@ atlas = ExtResource("2_pe66s")
 region = Rect2(0, 6.0817, 35.202, 27.5301)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8c0ly"]
-size = Vector2(1.62608e+06, 1.1004e+06)
+size = Vector2(1.49999e+06, 950199)
 
 [node name="shark" type="Node2D"]
 position = Vector2(132, 108)
@@ -37,7 +37,7 @@ texture = SubResource("AtlasTexture_kdpa1")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Sharksprite"]
-position = Vector2(0.867435, -0.506199)
+position = Vector2(0.495842, -0.753109)
 scale = Vector2(1e-05, 1e-05)
 shape = SubResource("RectangleShape2D_8c0ly")
 

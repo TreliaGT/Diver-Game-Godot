@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dh0d4ks1mhryi"]
+[gd_scene load_steps=38 format=3 uid="uid://dh0d4ks1mhryi"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_omo5f"]
 [ext_resource type="Texture2D" uid="uid://babvejmvx4cfp" path="res://assets/iu.png" id="1_xa8jx"]
@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://5sh7ivam4bi7" path="res://scenes/objects/shark_3.tscn" id="9_8gmst"]
 [ext_resource type="PackedScene" uid="uid://bf36bjhm442yt" path="res://scenes/objects/coins.tscn" id="10_bas83"]
 [ext_resource type="PackedScene" uid="uid://dhwjh018ru7xn" path="res://scenes/objects/bubble.tscn" id="11_s14fr"]
+[ext_resource type="PackedScene" uid="uid://c8mxfhsjijm22" path="res://scenes/objects/rocks_bubble.tscn" id="12_bhb5g"]
+[ext_resource type="PackedScene" uid="uid://o0aphuvn8ger" path="res://scenes/objects/rocks_coin.tscn" id="13_gyd88"]
+[ext_resource type="PackedScene" uid="uid://dnjxk4qmnqm70" path="res://scenes/objects/rocks_1_coin.tscn" id="14_hnq66"]
 [ext_resource type="Texture2D" uid="uid://waf0wpxf554o" path="res://assets/circle-pause.png" id="14_nbwci"]
 [ext_resource type="Texture2D" uid="uid://cluv2hj68khg1" path="res://assets/restart.jpg" id="16_egiqw"]
 [ext_resource type="Texture2D" uid="uid://bbq2atvi6xa37" path="res://assets/Play.jpg" id="17_h1jig"]
@@ -28,7 +31,7 @@ spawn_chance = 2.0
 [sub_resource type="Resource" id="Resource_q5igr"]
 script = ExtResource("2_roqd1")
 scene = ExtResource("4_mnnsj")
-spawn_chance = 3.0
+spawn_chance = 2.0
 
 [sub_resource type="Resource" id="Resource_e5t11"]
 script = ExtResource("2_roqd1")
@@ -38,17 +41,17 @@ spawn_chance = 2.0
 [sub_resource type="Resource" id="Resource_ut5gj"]
 script = ExtResource("2_roqd1")
 scene = ExtResource("6_snybs")
-spawn_chance = 1.0
+spawn_chance = 2.0
 
 [sub_resource type="Resource" id="Resource_3e151"]
 script = ExtResource("2_roqd1")
 scene = ExtResource("7_c6enu")
-spawn_chance = 1.0
+spawn_chance = 2.0
 
 [sub_resource type="Resource" id="Resource_lp666"]
 script = ExtResource("2_roqd1")
 scene = ExtResource("8_0v1he")
-spawn_chance = 3.0
+spawn_chance = 2.0
 
 [sub_resource type="Resource" id="Resource_36gkm"]
 script = ExtResource("2_roqd1")
@@ -58,11 +61,26 @@ spawn_chance = 2.0
 [sub_resource type="Resource" id="Resource_478yr"]
 script = ExtResource("2_roqd1")
 scene = ExtResource("10_bas83")
-spawn_chance = 3.0
+spawn_chance = 2.0
 
 [sub_resource type="Resource" id="Resource_hhj7f"]
 script = ExtResource("2_roqd1")
 scene = ExtResource("11_s14fr")
+spawn_chance = 2.0
+
+[sub_resource type="Resource" id="Resource_i34p8"]
+script = ExtResource("2_roqd1")
+scene = ExtResource("12_bhb5g")
+spawn_chance = 4.0
+
+[sub_resource type="Resource" id="Resource_kkfv2"]
+script = ExtResource("2_roqd1")
+scene = ExtResource("13_gyd88")
+spawn_chance = 4.0
+
+[sub_resource type="Resource" id="Resource_rx1kh"]
+script = ExtResource("2_roqd1")
+scene = ExtResource("14_hnq66")
 spawn_chance = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ax8"]
@@ -78,7 +96,7 @@ region = Rect2(34.0231, 33.542, 30.4579, 29.6868)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_omo5f")
-moving_object_types = Array[ExtResource("2_roqd1")]([SubResource("Resource_i5k5u"), SubResource("Resource_q5igr"), SubResource("Resource_e5t11"), SubResource("Resource_ut5gj"), SubResource("Resource_3e151"), SubResource("Resource_lp666"), SubResource("Resource_36gkm"), SubResource("Resource_478yr"), SubResource("Resource_hhj7f")])
+moving_object_types = Array[ExtResource("2_roqd1")]([SubResource("Resource_i5k5u"), SubResource("Resource_q5igr"), SubResource("Resource_e5t11"), SubResource("Resource_ut5gj"), SubResource("Resource_3e151"), SubResource("Resource_lp666"), SubResource("Resource_36gkm"), SubResource("Resource_478yr"), SubResource("Resource_hhj7f"), SubResource("Resource_i34p8"), SubResource("Resource_kkfv2"), SubResource("Resource_rx1kh")])
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1

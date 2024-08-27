@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_nyh6l"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 212, -2, 0, 0, 0, 0, 395, -3)
+"points": PackedVector2Array(0, 0, 0, 0, 212, -2, 0, 0, 0, 0, 414, -1)
 }
 point_count = 2
 
@@ -14,7 +14,7 @@ atlas = ExtResource("2_gkb27")
 region = Rect2(0, 6.0817, 35.202, 27.5301)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ja0"]
-size = Vector2(16.9451, 10.0927)
+size = Vector2(15.0025, 8.49988)
 
 [node name="shark2" type="Node2D"]
 position = Vector2(132, 108)
@@ -26,7 +26,7 @@ curve = SubResource("Curve2D_nyh6l")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(212, -2)
-rotation = -0.00546443
+rotation = 0.00495045
 
 [node name="Sharksprite" type="Area2D" parent="Path2D/PathFollow2D"]
 scale = Vector2(2, 2)
@@ -37,7 +37,7 @@ texture = SubResource("AtlasTexture_kdpa1")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Sharksprite"]
-position = Vector2(0.997253, 0.505466)
+position = Vector2(0.498627, 0.255474)
 shape = SubResource("RectangleShape2D_j3ja0")
 
 [connection signal="body_entered" from="Path2D/PathFollow2D/Sharksprite" to="." method="_on_sharksprite_body_entered"]

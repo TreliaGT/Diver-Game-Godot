@@ -11,5 +11,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _ready() -> void:
-	var random_float = randf() 
-	process.progress_ratio = random_float
+	if(process):
+		var random_float = randf() 
+		process.progress_ratio = random_float
